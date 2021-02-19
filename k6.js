@@ -14,5 +14,5 @@ export const options = {
 };
 
 export default function () {
-	const res = http.get('https://fe-en.mls-prd.deltatre.digital/');
+	const res = http.get('https://www.google.com/');
 }

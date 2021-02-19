@@ -12,6 +12,19 @@ spec:
     app: k6
   type: LoadBalancer
 ---
+apiVersion: v1
+kind: Service
+metadata:
+  name: k6-influx
+spec:
+  ports:
+  - name: k6-influx
+    port: 1001
+    targetPort: 8086
+  selector:
+    app: k6
+  type: LoadBalancer
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -37,6 +50,8 @@ spec:
         ports:
         - name: http
           containerPort: 3000
+        - name: http1
+          containerPort: 8086
         resources:
           limits:
             memory: "512Mi"
